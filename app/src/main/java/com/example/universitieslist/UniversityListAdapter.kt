@@ -1,7 +1,5 @@
 package com.example.universitieslist
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 
-class UniversityListAdapter(private val universities:List<University>,private val context: Context,private val listener:LinkClicked): RecyclerView.Adapter<ListViewHolder>() {
+class UniversityListAdapter(private val universities:List<University>,private val listener:LinkClicked): RecyclerView.Adapter<ListViewHolder>() {
 
     private lateinit var list:ArrayList<String>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -52,41 +50,27 @@ class UniversityListAdapter(private val universities:List<University>,private va
         holder.link1.setOnClickListener {
            val websiteUrls = holder.link1.text.toString()
             listener.onItemClicked(websiteUrls)
-//            if (websiteUrls.isNotEmpty()) {
-//                openWebsiteInWebView(websiteUrls)
-//            }
         }
         holder.link2.setOnClickListener {
             val websiteUrls = holder.link2.text.toString()
             listener.onItemClicked(websiteUrls)
-//            if (websiteUrls.isNotEmpty()) {
-//                openWebsiteInWebView(websiteUrls)
-//            }
         }
         holder.link3.setOnClickListener {
             val websiteUrls = holder.link3.text.toString()
             listener.onItemClicked(websiteUrls)
-//            if (websiteUrls.isNotEmpty()) {
-//                openWebsiteInWebView(websiteUrls)
-//            }
+
         }
         holder.link4.setOnClickListener {
             val websiteUrls = holder.link4.text.toString()
             listener.onItemClicked(websiteUrls)
-//            if (websiteUrls.isNotEmpty()) {
-//                openWebsiteInWebView(websiteUrls)
-//            }
+
         }
     }
 
 
 
 
-    private fun openWebsiteInWebView(websiteUrls: String) {
-        val intent = Intent(context, WebView::class.java)
-        intent.putExtra("url", websiteUrls)
-        context.startActivity(intent)
-    }
+
 
     override fun getItemCount(): Int {
         return universities.size

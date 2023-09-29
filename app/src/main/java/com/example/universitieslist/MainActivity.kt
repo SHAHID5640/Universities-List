@@ -28,7 +28,7 @@ open class MainActivity : AppCompatActivity(),LinkClicked {
 
         recyclerView = findViewById(R.id.clg_list)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        universityAdapter = UniversityListAdapter(emptyList(), this,this)
+        universityAdapter = UniversityListAdapter(emptyList(), this)
         recyclerView.adapter = universityAdapter
 
 
@@ -80,7 +80,7 @@ open class MainActivity : AppCompatActivity(),LinkClicked {
                     val universities = response.body()
 
                     if (universities !=null){
-                        universityAdapter = UniversityListAdapter(universities, this@MainActivity,this@MainActivity)
+                        universityAdapter = UniversityListAdapter(universities, this@MainActivity)
                         recyclerView.adapter = universityAdapter
                         Toast.makeText(this@MainActivity,"Data is refresh",Toast.LENGTH_SHORT).show()
 
